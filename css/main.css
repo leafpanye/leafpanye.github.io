@@ -1686,7 +1686,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #71ffff;
+  background: #38fb70;
 }
 .links-of-blogroll {
   font-size: 13px;
@@ -2855,4 +2855,7 @@ a.search-result {
   max-width: 100%;
   display: inline-block;
   margin: 0.8em 2em 0 2em;
+}
+#QR a {
+  border-bottom: 0;
 }
