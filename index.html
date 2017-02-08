@@ -395,65 +395,14 @@
 
       
         
-          
-            <p>　　通过jQuery实现一个导航栏，单击不同的商品名称链接，显示相应的内容，同时高亮显示当前选择的商品。<br>　　<br>　　html代码：</p>
-<pre><code>&lt;!DOCTYPE html&gt;
-&lt;html&gt;
-&lt;head&gt;
-    &lt;meta charset=&quot;UTF-8&quot;&gt;
-    &lt;title&gt;导航栏&lt;/title&gt;
-    &lt;link rel=&quot;stylesheet&quot; href=&quot;http://oksyeh4la.bkt.clouddn.com/default.css&quot;/&gt;
-    &lt;script src=&quot;http://cdn.bootcss.com/jquery/1.12.4/jquery.min.js&quot;&gt;&lt;/script&gt;
-&lt;/head&gt;
-&lt;body&gt;
-    &lt;div class=&quot;box&quot;&gt;
-        &lt;ul class=&quot;menu&quot;&gt;
-            &lt;li class=&quot;level1&quot;&gt;
-                &lt;a href=&quot;#none&quot;&gt;衬衫&lt;/a&gt;
-                &lt;ul class=&quot;level2&quot;&gt;
-                    &lt;li&gt;&lt;a href=&quot;#none&quot;&gt;短袖衬衫&lt;/a&gt;&lt;/li&gt;
-                    &lt;li&gt;&lt;a href=&quot;#none&quot;&gt;长袖衬衫&lt;/a&gt;&lt;/li&gt;
-                    &lt;li&gt;&lt;a href=&quot;#none&quot;&gt;短袖T恤&lt;/a&gt;&lt;/li&gt;
-                    &lt;li&gt;&lt;a href=&quot;#none&quot;&gt;长袖T恤&lt;/a&gt;&lt;/li&gt;
-                &lt;/ul&gt;
-            &lt;/li&gt;
-            &lt;li class=&quot;level1&quot;&gt;
-                &lt;a href=&quot;#none&quot;&gt;卫衣&lt;/a&gt;
-                &lt;ul class=&quot;level2&quot;&gt;
-                    &lt;li&gt;&lt;a href=&quot;#none&quot;&gt;开襟卫衣&lt;/a&gt;&lt;/li&gt;
-                    &lt;li&gt;&lt;a href=&quot;#none&quot;&gt;套头卫衣&lt;/a&gt;&lt;/li&gt;
-                    &lt;li&gt;&lt;a href=&quot;#none&quot;&gt;运动卫衣&lt;/a&gt;&lt;/li&gt;
-                    &lt;li&gt;&lt;a href=&quot;#none&quot;&gt;童装卫衣&lt;/a&gt;&lt;/li&gt;
-                &lt;/ul&gt;
-            &lt;/li&gt;
-            &lt;li class=&quot;level1&quot;&gt;
-                &lt;a href=&quot;#none&quot;&gt;裤子&lt;/a&gt;
-                &lt;ul class=&quot;level2&quot;&gt;
-                    &lt;li&gt;&lt;a href=&quot;#none&quot;&gt;短裤&lt;/a&gt;&lt;/li&gt;
-                    &lt;li&gt;&lt;a href=&quot;#none&quot;&gt;休闲裤&lt;/a&gt;&lt;/li&gt;
-                    &lt;li&gt;&lt;a href=&quot;#none&quot;&gt;牛仔裤&lt;/a&gt;&lt;/li&gt;
-                    &lt;li&gt;&lt;a href=&quot;#none&quot;&gt;免烫卡其裤&lt;/a&gt;&lt;/li&gt;
-                &lt;/ul&gt;
-            &lt;/li&gt;
-        &lt;/ul&gt;
-    &lt;/div&gt;
-
-&lt;script&gt;
-    //等待dom元素加载完毕.
-    $(function(){
-        $(&quot;.level1 &gt; a&quot;).click(function(){
-            $(this).addClass(&quot;current&quot;)   //给当前元素添加&quot;current&quot;样式
-            .next().show()                //下一个元素显示
-            .parent().siblings().children(&quot;a&quot;).removeClass(&quot;current&quot;)        //父元素的兄弟元素的子元素&lt;a&gt;移除&quot;current&quot;样式
-            .next().hide();                //它们的下一个元素隐藏
-            return false;
-        });
-    });
-&lt;/script&gt;
-&lt;/body&gt;
-&lt;/html&gt;
-</code></pre>
-          
+          <p>　　通过jQuery实现一个导航栏，单击不同的商品名称链接，显示相应的内容，同时高亮显示当前选择的商品。<br>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/02/08/导航栏/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
