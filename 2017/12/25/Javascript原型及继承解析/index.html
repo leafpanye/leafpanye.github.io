@@ -90,7 +90,7 @@
 <meta property="og:url" content="http://leafpanye.github.io/2017/12/25/Javascript原型及继承解析/index.html">
 <meta property="og:site_name" content="leafpanye's blog">
 <meta property="og:description" content="原型和继承是Javascript的特色，最近把这方面的知识又学习了一遍。">
-<meta property="og:updated_time" content="2017-12-25T13:01:56.987Z">
+<meta property="og:updated_time" content="2017-12-25T13:23:42.905Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Javascript原型及继承解析">
 <meta name="twitter:description" content="原型和继承是Javascript的特色，最近把这方面的知识又学习了一遍。">
@@ -418,7 +418,8 @@ console.log(p.name);
 </code></pre><p>利用构造函数创建一个对象，则这个对象会自动添加一个不可见的属性<strong>proto</strong>，而且这个属性指向了构造函数的原型对象。<br>prototype存在于构造函数中（其实任何函数中都有，只是不是构造函数的时候prototype我们不关注而已），他指向了这个构造函数的原型对象。</p>
 <pre><code>var p1 = new Person();
 console.log(p1.__proto__ === Person.prototype); //true
-</code></pre><p>constructor属性存在于原型对象中，他指向了构造函数。</p>
+</code></pre><p>其实这边个人觉得，new关键词就是创造了一个新的空对象，它有一个属性<strong>proto</strong>指向了父类的原型对象，通过这种方式实现了子类对父类的继承。</p>
+<p>constructor属性存在于原型对象中，他指向了构造函数。</p>
 <pre><code>console.log(Person.prototype.constructor === Person); //true
 </code></pre><p>使用instanceof操作符可以判断一个对象的类型。 typeof一般用来获取简单类型和函数，而引用类型一般使用instanceof，因为引用类型用typeof总是返回object。</p>
 <pre><code>console.log(p1 instanceof Person); //true
@@ -434,19 +435,22 @@ console.log(Person.prototype.constructor === Person); //false
     constructor: Person //让constructor重新指向Person函数
 }
 console.log(Person.prototype.constructor === Person); //true
-</code></pre><p>下面我总结了3个问题点：<br><strong>1、把方法直接写在构造函数中和写在原型prototype上，有什么区别？</strong><br>答：①把方法写在原型中比写在构造函数中消耗的内存更小，因为在内存中一个类的原型只有一个，写在原型中的行为可以被所有实例共享，实例化的时候并不会在实例的内存中再复制一份。而写在类中的方法，实例化的时候会在每个实例中再复制一份，所以消耗的内存更高。所以没有特殊原因，我们一般把属性写到类中，而行为写到原型中。<br>②构造函数中定义的属性和方法要比原型中定义的属性和方法的优先级高，如果定义了同名称的属性和方法，构造函数中的将会覆盖原型中的，方法的优先级亦是如此。<br><strong>2、设置原型的construor属性有什么意义？</strong><br>答：把原型的constructor 设置回默认的函数，<br>例如：</p>
+</code></pre><p>下面我总结了3个问题点：</p>
+<p><strong>1、把方法直接写在构造函数中和写在原型prototype上，有什么区别？</strong><br>答：①把方法写在原型中比写在构造函数中消耗的内存更小，因为在内存中一个类的原型只有一个，写在原型中的行为可以被所有实例共享，实例化的时候并不会在实例的内存中再复制一份。而写在类中的方法，实例化的时候会在每个实例中再复制一份，所以消耗的内存更高。所以没有特殊原因，我们一般把属性写到类中，而行为写到原型中。<br>②构造函数中定义的属性和方法要比原型中定义的属性和方法的优先级高，如果定义了同名称的属性和方法，构造函数中的将会覆盖原型中的，方法的优先级亦是如此。</p>
+<p><strong>2、设置原型的construor属性有什么意义？</strong><br>答：把原型的constructor 设置回默认的函数，<br>例如：</p>
 <pre><code>function fatherFn() {}
 function sonFn() {}
 sonFn.prototype = new fatherFn();
 sonFn.prototype.constructor = sonFn;  //这句话将原型的constructor 设置回默认的 sonFn
 var newSonFn = new sonFn();
 console.log(newSonFn.constructor); //sonFn
-</code></pre><p>我觉得继承的时候重新设置constructor属性可以保持原型链清晰，层次分明，还是感觉实际用处不大啊。。。<br>如果不设置的话，处于原型链上的所有函数包括实例，它的原型的constructor属性永远是最初的构造函数（当然，实例对象是没有prototype属性的，只有<strong>proto</strong>属性）。<br>另外，（最初的）构造函数原型的constructor属性是构造函数自身，继承它的函数的原型的constructor属性是构造函数，所有函数（不包括实例）的constructor属性是Function；<br>constructor的作用一般是将实例的构造器的原型对象暴露出来, 比如你写了一个插件,别人得到的都是你实例化后的对象, 如果别人想扩展下对象,就可以用  实例对象.constructor.prototype 去修改或扩展原型对象。<br>1、constructor属性指向的是创建当前对象的构造函数。<br>2、每个函数都有一个默认的属性prototype，而这个prototype的constructor默认指向这个函数<br>3、当改变Person的prototype时，会发现，Person.prototype.constructor指向了Object，主要是因为:<br>Person.prototype = {name:”123”} 相当于Person.prototype=new Object({name:”123”} );此时的构造器变成了Object。<br><strong>3、最优化对象继承方式</strong><br>答：利用空对象作为中介</p>
+</code></pre><p>我觉得继承的时候重新设置constructor属性可以保持原型链清晰，层次分明，还是感觉实际用处不大啊。。。<br>如果不设置的话，处于原型链上的所有函数包括实例，它的原型的constructor属性永远是最初的构造函数（当然，实例对象是没有prototype属性的，只有<strong>proto</strong>属性）。<br>另外，（最初的）构造函数原型的constructor属性是构造函数自身，继承它的函数的原型的constructor属性是构造函数，所有函数（不包括实例）的constructor属性是Function；<br>constructor的作用一般是将实例的构造器的原型对象暴露出来, 比如你写了一个插件,别人得到的都是你实例化后的对象, 如果别人想扩展下对象,就可以用  实例对象.constructor.prototype 去修改或扩展原型对象。<br>1、constructor属性指向的是创建当前对象的构造函数。<br>2、每个函数都有一个默认的属性prototype，而这个prototype的constructor默认指向这个函数<br>3、当改变Person的prototype时，会发现，Person.prototype.constructor指向了Object，主要是因为:<br>Person.prototype = {name:”123”} 相当于Person.prototype=new Object({name:”123”} );此时的构造器变成了Object。</p>
+<p><strong>3、最优化对象继承方式</strong><br>答：利用空对象作为中介</p>
 <pre><code>var F = function(){};
 F.prototype = Animal.prototype;
 Cat.prototype = new F();
 Cat.prototype.constructor = Cat;
-</code></pre><p>F是空对象，所以几乎不占内存。这时，修改Cat的prototype对象，就不会影响到Animal的prototype对象。<br>我们将上面的方法，封装成一个函数，便于使用。</p>
+</code></pre><p>F是空对象，所以几乎不占内存。这时，修改Cat的prototype对象，就不会影响到Animal的prototype对象（优化内存）。<br>我们将上面的方法，封装成一个函数，便于使用。</p>
 <pre><code>function extend(Child, Parent) {
     var F = function(){};
     F.prototype = Parent.prototype;
