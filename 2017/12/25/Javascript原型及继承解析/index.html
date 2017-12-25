@@ -68,7 +68,7 @@
 <link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="前端,技术,励志,知识,分享" />
+  <meta name="keywords" content="JavaScript," />
 
 
 
@@ -84,15 +84,16 @@
 
 
 
-<meta name="description" content="独立博客，IT博客，关注站长、励志、自媒体、网络推广、搜索引擎，leafpanye的博客是一个值得收藏的网站。">
-<meta property="og:type" content="website">
-<meta property="og:title" content="leafpanye's blog">
-<meta property="og:url" content="http://leafpanye.github.io/archives/2017/05/index.html">
+<meta name="description" content="原型和继承是Javascript的特色，最近把这方面的知识又学习了一遍。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Javascript原型及继承解析">
+<meta property="og:url" content="http://leafpanye.github.io/2017/12/25/Javascript原型及继承解析/index.html">
 <meta property="og:site_name" content="leafpanye's blog">
-<meta property="og:description" content="独立博客，IT博客，关注站长、励志、自媒体、网络推广、搜索引擎，leafpanye的博客是一个值得收藏的网站。">
+<meta property="og:description" content="原型和继承是Javascript的特色，最近把这方面的知识又学习了一遍。">
+<meta property="og:updated_time" content="2017-12-25T13:01:56.987Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="leafpanye's blog">
-<meta name="twitter:description" content="独立博客，IT博客，关注站长、励志、自媒体、网络推广、搜索引擎，leafpanye的博客是一个值得收藏的网站。">
+<meta name="twitter:title" content="Javascript原型及继承解析">
+<meta name="twitter:description" content="原型和继承是Javascript的特色，最近把这方面的知识又学习了一遍。">
 
 
 
@@ -120,13 +121,13 @@
 
 
 
-  <link rel="canonical" href="http://leafpanye.github.io/archives/2017/05/"/>
+  <link rel="canonical" href="http://leafpanye.github.io/2017/12/25/Javascript原型及继承解析/"/>
 
 
 
 
 
-  <title> 归档 | leafpanye's blog </title>
+  <title> Javascript原型及继承解析 | leafpanye's blog </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -157,7 +158,7 @@
     
   
 
-  <div class="container one-collumn sidebar-position-left  page-archive  ">
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -282,66 +283,279 @@
           <div id="content" class="content">
             
 
-  <section id="posts" class="posts-collapse">
-    <span class="archive-move-on"></span>
-
-    <span class="archive-page-counter">
-      
-      
-      
-        
-      
-      嗯..! 目前共计 6 篇日志。 继续努力。
-    </span>
-
+  <div id="posts" class="posts-expand">
     
 
-      
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+  <link itemprop="mainEntityOfPage" href="http://leafpanye.github.io/2017/12/25/Javascript原型及继承解析/">
+
+  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="name" content="leafpanye">
+    <meta itemprop="description" content="">
+    <meta itemprop="image" content="/images/avatar.jpg">
+  </span>
+
+  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="leafpanye's blog">
+    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
+      <img style="display:none;" itemprop="url image" alt="leafpanye's blog" src="">
+    </span>
+  </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                Javascript原型及继承解析
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-12-25T20:25:41+08:00">
+                2017-12-25
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/前端技术/" itemprop="url" rel="index">
+                    <span itemprop="name">前端技术</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2017/12/25/Javascript原型及继承解析/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/12/25/Javascript原型及继承解析/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv"><i class="fa fa-file-o"></i>
+            <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>
+            </span>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
       
       
 
       
+        <p>原型和继承是Javascript的特色，最近把这方面的知识又学习了一遍。<br><a id="more"></a><br>我们直接看一个简单的例子：</p>
+<pre><code>var Person = function(name) {  
+    this.name = name;
+};  
+var p = new Person(&quot;Ben&quot;);  
+console.log(p.name);
+</code></pre><p>声明一个函数，则这个函数默认会有一个属性叫prototype，而且浏览器会自动按照一定的规则创建一个对象，这个对象就是这个函数的原型对象，prototype属性指向这个原型对象。这个原型对象有一个属性叫constructor执行了这个函数。<br><strong>注意：原型对象默认只有属性：constructor，其他都是从Object继承而来。</strong></p>
+<pre><code>function Person() {
+
+}
+</code></pre><p>利用构造函数创建一个对象，则这个对象会自动添加一个不可见的属性<strong>proto</strong>，而且这个属性指向了构造函数的原型对象。<br>prototype存在于构造函数中（其实任何函数中都有，只是不是构造函数的时候prototype我们不关注而已），他指向了这个构造函数的原型对象。</p>
+<pre><code>var p1 = new Person();
+console.log(p1.__proto__ === Person.prototype); //true
+</code></pre><p>constructor属性存在于原型对象中，他指向了构造函数。</p>
+<pre><code>console.log(Person.prototype.constructor === Person); //true
+</code></pre><p>使用instanceof操作符可以判断一个对象的类型。 typeof一般用来获取简单类型和函数，而引用类型一般使用instanceof，因为引用类型用typeof总是返回object。</p>
+<pre><code>console.log(p1 instanceof Person); //true
+</code></pre><p>根据需要，可以把Person.prototype属性指定新的对象，来作为Person的原型对象。但是这个时候有个问题，新的对象的constructor属性则不再指向Person构造函数了。</p>
+<pre><code>Person.prototype = {
+    name: &apos;小玲&apos;,
+    age: 20
+}
+var p2 = new Person();
+console.log(Person.prototype.constructor === Person); //false
+</code></pre><p>如果constructor对你很重要，你应该在Person.prototype中添加一行这样的代码：</p>
+<pre><code>Person.prototype = {
+    constructor: Person //让constructor重新指向Person函数
+}
+console.log(Person.prototype.constructor === Person); //true
+</code></pre><p>下面我总结了3个问题点：<br><strong>1、把方法直接写在构造函数中和写在原型prototype上，有什么区别？</strong><br>答：①把方法写在原型中比写在构造函数中消耗的内存更小，因为在内存中一个类的原型只有一个，写在原型中的行为可以被所有实例共享，实例化的时候并不会在实例的内存中再复制一份。而写在类中的方法，实例化的时候会在每个实例中再复制一份，所以消耗的内存更高。所以没有特殊原因，我们一般把属性写到类中，而行为写到原型中。<br>②构造函数中定义的属性和方法要比原型中定义的属性和方法的优先级高，如果定义了同名称的属性和方法，构造函数中的将会覆盖原型中的，方法的优先级亦是如此。<br><strong>2、设置原型的construor属性有什么意义？</strong><br>答：把原型的constructor 设置回默认的函数，<br>例如：</p>
+<pre><code>function fatherFn() {}
+function sonFn() {}
+sonFn.prototype = new fatherFn();
+sonFn.prototype.constructor = sonFn;  //这句话将原型的constructor 设置回默认的 sonFn
+var newSonFn = new sonFn();
+console.log(newSonFn.constructor); //sonFn
+</code></pre><p>我觉得继承的时候重新设置constructor属性可以保持原型链清晰，层次分明，还是感觉实际用处不大啊。。。<br>如果不设置的话，处于原型链上的所有函数包括实例，它的原型的constructor属性永远是最初的构造函数（当然，实例对象是没有prototype属性的，只有<strong>proto</strong>属性）。<br>另外，（最初的）构造函数原型的constructor属性是构造函数自身，继承它的函数的原型的constructor属性是构造函数，所有函数（不包括实例）的constructor属性是Function；<br>constructor的作用一般是将实例的构造器的原型对象暴露出来, 比如你写了一个插件,别人得到的都是你实例化后的对象, 如果别人想扩展下对象,就可以用  实例对象.constructor.prototype 去修改或扩展原型对象。<br>1、constructor属性指向的是创建当前对象的构造函数。<br>2、每个函数都有一个默认的属性prototype，而这个prototype的constructor默认指向这个函数<br>3、当改变Person的prototype时，会发现，Person.prototype.constructor指向了Object，主要是因为:<br>Person.prototype = {name:”123”} 相当于Person.prototype=new Object({name:”123”} );此时的构造器变成了Object。<br><strong>3、最优化对象继承方式</strong><br>答：利用空对象作为中介</p>
+<pre><code>var F = function(){};
+F.prototype = Animal.prototype;
+Cat.prototype = new F();
+Cat.prototype.constructor = Cat;
+</code></pre><p>F是空对象，所以几乎不占内存。这时，修改Cat的prototype对象，就不会影响到Animal的prototype对象。<br>我们将上面的方法，封装成一个函数，便于使用。</p>
+<pre><code>function extend(Child, Parent) {
+    var F = function(){};
+    F.prototype = Parent.prototype;
+    Child.prototype = new F();
+    Child.prototype.constructor = Child;
+    Child.uber = Parent.prototype;
+}
+</code></pre><p>使用的时候，方法如下：</p>
+<pre><code>extend(Cat,Animal);
+var cat1 = new Cat(&quot;大毛&quot;,&quot;黄色&quot;);
+alert(cat1.species); // 动物
+</code></pre><p>另外，说明一点，函数体最后一行Child.uber = Parent.prototype;<br>意思是为子对象设一个uber属性，这个属性直接指向父对象的prototype属性。（uber是一个德语词，意思是”向上”、”上一层”。）这等于在子对象上打开一条通道，可以直接调用父对象的方法。这一行放在这里，只是为了实现继承的完备性，纯属备用性质。</p>
+
+      
+    </div>
+
+    <div>
+      
         
-        <div class="collection-title">
-          <h2 class="archive-year motion-element" id="archive-year-2017">2017</h2>
+
+      
+    </div>
+
+    <div>
+      
+        
+  <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+    <div>坚持原创技术分享，您的支持将鼓励我继续创作！</div>
+    <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+      <span>赏</span>
+    </button>
+    <div id="QR" style="display: none;">
+      
+        <div id="wechat" style="display: inline-block">
+          <img id="wechat_qr" src="/images/weixin.png" alt="leafpanye WeChat Pay"/>
+          <p>微信打赏</p>
         </div>
       
       
+        <div id="alipay" style="display: inline-block">
+          <img id="alipay_qr" src="/images/zhifubao.jpg" alt="leafpanye Alipay"/>
+          <p>支付宝打赏</p>
+        </div>
+      
+    </div>
+  </div>
+
 
       
+    </div>
 
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
 
-      <h1 class="post-title">
-        
-            <a class="post-title-link" href="/2017/05/04/AngularJS学习之PhoneCat安装/" itemprop="url">
-              
-                <span itemprop="name">AngularJS学习之PhoneCat安装</span>
-              
-            </a>
-        
-      </h1>
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/JavaScript/" rel="tag"># JavaScript</a>
+          
+        </div>
+      
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-05-04T20:17:10+08:00"
-              content="2017-05-04" >
-          05-04
-        </time>
-      </div>
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/06/08/十分钟学会写JQuery插件/" rel="next" title="十分钟学会写JQuery插件">
+                <i class="fa fa-chevron-left"></i> 十分钟学会写JQuery插件
+              </a>
+            
+          </div>
 
-    </header>
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
   </article>
 
 
 
-    
+    <div class="post-spread">
+      
+        <div class="ds-share flat" data-thread-key="2017/12/25/Javascript原型及继承解析/"
+     data-title="Javascript原型及继承解析"
+     data-content=""
+     data-url="http://leafpanye.github.io/2017/12/25/Javascript原型及继承解析/">
+  <div class="ds-share-inline">
+    <ul  class="ds-share-icons-16">
 
-  </section>
+      <li data-toggle="ds-share-icons-more"><a class="ds-more" href="javascript:void(0);">分享到：</a></li>
+      <li><a class="ds-weibo" href="javascript:void(0);" data-service="weibo">微博</a></li>
+      <li><a class="ds-qzone" href="javascript:void(0);" data-service="qzone">QQ空间</a></li>
+      <li><a class="ds-qqt" href="javascript:void(0);" data-service="qqt">腾讯微博</a></li>
+      <li><a class="ds-wechat" href="javascript:void(0);" data-service="wechat">微信</a></li>
 
-  
-
+    </ul>
+    <div class="ds-share-icons-more">
+    </div>
+  </div>
+</div>
+      
+    </div>
+  </div>
 
           
           </div>
@@ -349,6 +563,14 @@
 
 
           
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2017/12/25/Javascript原型及继承解析/"
+           data-title="Javascript原型及继承解析" data-url="http://leafpanye.github.io/2017/12/25/Javascript原型及继承解析/">
+      </div>
+    
+  </div>
+
 
         </div>
         
@@ -547,11 +769,9 @@
 
 
   
-  
-    <script type="text/javascript" id="motion.page.archive">
-      $('.archive-year').velocity('transition.slideLeftIn');
-    </script>
-  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
 
 
   
